@@ -4,11 +4,13 @@ interface GlassCardProps {
   children: React.ReactNode;
   className?: string;
   gradient?: boolean;
+  onClick?: () => void;
 }
 
-export default function GlassCard({ children, className, gradient = false }: GlassCardProps) {
+export default function GlassCard({ children, className, gradient = false, onClick }: GlassCardProps) {
   return (
     <div
+      onClick={onClick}
       className={cn(
         "backdrop-blur-xl rounded-3xl p-6 border",
         gradient

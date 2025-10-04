@@ -23,15 +23,15 @@ export default function DashboardSidebar() {
           </h1>
         </div>
 
-        <nav className="flex-1 space-y-2">
+        <nav className="flex-1 space-y-4">
           {menuItems.map((item) => {
             const isActive = location === item.path;
             return (
               <Link key={item.path} href={item.path}>
-                <a
+                <div
                   data-testid={`link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   className={cn(
-                    'flex items-center gap-4 p-3 rounded-lg transition-all duration-200',
+                    'flex items-center gap-4 p-4 rounded-lg transition-all duration-200 cursor-pointer',
                     'hover-elevate active-elevate-2',
                     isActive
                       ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 border border-purple-500/50'
@@ -48,7 +48,7 @@ export default function DashboardSidebar() {
                   )}>
                     {item.label}
                   </span>
-                </a>
+                </div>
               </Link>
             );
           })}
